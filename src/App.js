@@ -1,26 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Customer from './components/Customer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const customers = [
+  {
+    'id':1,
+    'img' : 'https://lh3.googleusercontent.com/ygBeB4Ug1roppIZvrijsesps7NX0LRLrgY2Pt8_QRYHsetC0tGQR0l7mmm2CtRUrONNF91A=s151',
+    'name' : '승ㅎ남',
+    'birthday' : '910201',
+    'gender' : '여',
+    'job' : '회사원'
+  },
+  {
+    'id':2,
+    'img' : 'https://lh3.googleusercontent.com/ygBeB4Ug1roppIZvrijsesps7NX0LRLrgY2Pt8_QRYHsetC0tGQR0l7mmm2CtRUrONNF91A=s151',
+    'name' : '승남2',
+    'birthday' : '910201',
+    'gender' : '여',
+    'job' : '회사원'
+  },
+  {
+    'id':3,
+    'img' : 'https://lh3.googleusercontent.com/ygBeB4Ug1roppIZvrijsesps7NX0LRLrgY2Pt8_QRYHsetC0tGQR0l7mmm2CtRUrONNF91A=s151',
+    'name' : '승남3',
+    'birthday' : '910201',
+    'gender' : '여',
+    'job' : '회사원'
+  }
+]
+
+class App extends Component{
+  render(){
+    return(
+      <div>
+        {
+          customers.map(c => {
+            return(
+              <Customer
+                key={c.id}
+                id={c.id}
+                img={c.img}
+                name={c.name}
+                birthday={c.birthday}
+                gender={c.gender}
+                job={c.job}
+              />
+            );
+          })
+        }
+        
+      </div>
+    )
+  }
 }
 
 export default App;
